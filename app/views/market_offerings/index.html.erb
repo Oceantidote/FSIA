@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Market Offerings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @market_offerings.each do |market_offering| %>
+      <tr>
+        <td><%= market_offering.title %></td>
+        <td><%= link_to 'Show', market_offering %></td>
+        <% if policy(market_offering).edit? %>
+          <td><%= link_to 'Edit', edit_market_offering_path(market_offering) %></td>
+          <td><%= link_to 'Destroy', market_offering, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<% if policy(MarketOffering).new? %>
+  <%= link_to 'New Market Offering', new_market_offering_path %>
+<% end %>

@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @market_offering.title %>
+  <%= @market_offering.body %>
+</p>
+
+<%= link_to 'Edit', edit_market_offering_path(@market_offering) %> |
+<%= link_to 'Back', market_offerings_path %>
